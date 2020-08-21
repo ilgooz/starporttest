@@ -1,12 +1,4 @@
 builds:
   - main: ./starport/interface/cli/starport
-
-brews:
-  - name: "starport"
-    description: "CLI tool for developing Cosmos SDK apps."
-    homepage: "https://github.com/tendermint/starport"
-    github:
-      owner: "tendermint"
-      name: "homebrew-tap"
-    install: |
-      bin.install "starport"
+    ldflags:
+      - -s -w -X github.com/tendermint/starport/starport/internal/version.version={{.Tag}} -X github.com/tendermint/starport/starport/internal/version.date={{.Date}}
