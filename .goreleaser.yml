@@ -1,6 +1,9 @@
 builds:
   - main: ./starport/interface/cli/starport
 
+ldflags:
+  - -s -w -X github.com/tendermint/starport/starport/internal/version.version={{.Tag}} -X github.com/tendermint/starport/starport/internal/version.date={{.Date}}
+
 brews:
   - name: "starport"
     description: "CLI tool for developing Cosmos SDK apps."
